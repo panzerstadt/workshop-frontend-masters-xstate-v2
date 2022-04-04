@@ -23,6 +23,9 @@ html {
   background-color: #131313;
   color: white;
 }
+a {
+  color:white;
+}
 
 #app {
   display: grid;
