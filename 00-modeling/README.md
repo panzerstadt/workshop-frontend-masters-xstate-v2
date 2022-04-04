@@ -13,12 +13,18 @@
 
 Let's build a media player. It will have the following functionality:
 
+#### these are user stories
+
 - A song, when loaded, will start playing by default.
 - The user can play or pause the song
 - When the song is over, the next song will play
 - The user can like or unlike a song
 - When the song is unliked, the next song plays
 - The user can skip to the next song
+
+#### write given when then statements based on user stories
+
+- https://excalidraw.com/#json=hKySIbqsu_3HzNh7BdEAd,Sg3MtgaNUunHIbSPtSM2ag
 
 1. What are all the possible events (user or otherwise) that can happen?
 2. Do these events exhibit the same behavior at all times? If not, what are the different behaviors?
