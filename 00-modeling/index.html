@@ -8,23 +8,34 @@
   </head>
   <body>
     <h1>00. Modeling</h1>
+    <a
+      href="https://stately.ai/viz/3ffcbcf0-b4aa-4f16-bd5b-561a7d92cc10"
+      target="_blank"
+      >Visualization of the State Machine</a
+    >
+    <br />
 
     <div id="app">
       <div class="song">
-        <div class="title"><em>Song Title</em></div>
-        <div class="artist"><em>Artist</em></div>
+        <div class="title">
+          <em id="song-title">Some Song</em> is <span id="state"></span>
+        </div>
+        <div class="artist"><em id="song-artist">Artist</em></div>
         <input
           type="range"
           id="scrubber"
           min="0"
           max="50"
-          onchange="alert('wow such changes')"
+          value="0"
+          oninputsta
+          oninput="thing3.send({type: 'SCRUB_START'})"
+          onchange="thing3.send({type: 'SCRUB_END', payload: {progress: this.value}})"
         />
-        <output id="elapsed"></output>
+        <div><output id="elapsed"></output><output id="length"></output></div>
       </div>
       <div class="controls">
-        <button id="button-like"></button>
-        <button id="button-dislike"></button>
+        <!-- <button id="button-like"></button>
+        <button id="button-dislike"></button> -->
         <button id="button-play" onclick="thing3.send({type: 'PLAY'})"></button>
         <button
           id="button-pause"
@@ -34,8 +45,8 @@
           id="button-loading"
           onclick="thing3.send({type: 'LOADED'})"
         ></button>
-        <button id="button-skip"></button>
-        <button id="button-volume"></button>
+        <button id="button-skip" onclick="thing3.send({type: 'NEXT'})"></button>
+        <!-- <button id="button-volume"></button> -->
       </div>
     </div>
     <script type="module" src="./main.js"></script>
