@@ -13,15 +13,27 @@
       <div class="song">
         <div class="title"><em>Song Title</em></div>
         <div class="artist"><em>Artist</em></div>
-        <input type="range" id="scrubber" min="0" max="0" />
+        <input
+          type="range"
+          id="scrubber"
+          min="0"
+          max="50"
+          onchange="alert('wow such changes')"
+        />
         <output id="elapsed"></output>
       </div>
       <div class="controls">
         <button id="button-like"></button>
         <button id="button-dislike"></button>
-        <button id="button-play"></button>
-        <button id="button-pause"></button>
-        <button id="button-loading"></button>
+        <button id="button-play" onclick="thing3.send({type: 'PLAY'})"></button>
+        <button
+          id="button-pause"
+          onclick="thing3.send({type: 'PAUSE'})"
+        ></button>
+        <button
+          id="button-loading"
+          onclick="thing3.send({type: 'LOADED'})"
+        ></button>
         <button id="button-skip"></button>
         <button id="button-volume"></button>
       </div>
