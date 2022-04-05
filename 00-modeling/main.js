@@ -85,6 +85,7 @@ const newSong = () => {
     songProgress = 0;
 
     document.getElementById("scrubber").max = songLength
+    document.getElementById("scrubber").value = songProgress
     document.getElementById("elapsed").innerHTML = songProgress
     document.getElementById("length").innerHTML = " / " + songLength
     document.getElementById("song-title").innerHTML = songName
@@ -135,7 +136,7 @@ const machine = {
                         newSong()
                     }
                 },
-                SCRUB_START: {
+                SCRUB: {
                     target: 'scrubbing',
                     action: () => {
                         stop()
@@ -155,6 +156,15 @@ const machine = {
                         tick()
                     }
                 },
+                SCRUB: {
+                    target: 'scrubbing',
+                    action: (payload) => {
+                        if (payload.progress) {
+                            songProgress = payload.progress
+                            document.getElementById("elapsed").innerHTML = songProgress
+                        }
+                    }
+                }
             }
         },
         pausing: {
@@ -171,7 +181,7 @@ const machine = {
                         newSong()
                     }
                 },
-                SCRUB_START: {
+                SCRUB: {
                     target: 'scrubbing',
                     action: () => {
                         stop()

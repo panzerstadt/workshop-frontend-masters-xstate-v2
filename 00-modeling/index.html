@@ -28,7 +28,7 @@
           max="50"
           value="0"
           oninputsta
-          oninput="thing3.send({type: 'SCRUB_START'})"
+          oninput="thing3.send({type: 'SCRUB', payload: {progress: this.value}})"
           onchange="thing3.send({type: 'SCRUB_END', payload: {progress: this.value}})"
         />
         <div><output id="elapsed"></output><output id="length"></output></div>
